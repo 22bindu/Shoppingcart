@@ -10,8 +10,38 @@
  
 <title>Enter Customer Information</title>
  
-<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css"> 
+ <script>
+
+ $(function () {
+     $( '#table' ).searchable({
+         striped: true,
+         oddRow: { 'background-color': '#f5f5f5' },
+         evenRow: { 'background-color': '#fff' },
+         searchType: 'fuzzy'
+     });
+     
+     $( '#searchable-container' ).searchable({
+         searchField: '#container-search',
+         selector: '.row',
+         childSelector: '.col-xs-4',
+         show: function( elem ) {
+             elem.slideDown(100);
+         },
+         hide: function( elem ) {
+             elem.slideUp( 100 );
+         }
+     })
+ });
  
+ 
+ </script>
 </head>
 <body>
 <jsp:include page="_header.jsp" />
@@ -22,7 +52,7 @@
     <form:form method="POST" modelAttribute="customerForm"
         action="${pageContext.request.contextPath}/shoppingCartCustomer">
  
-        <table>
+        <table class="table table-striped">
             <tr>
                 <td>Name *</td>
                 <td><form:input path="name" /></td>
@@ -49,15 +79,16 @@
  
             <tr>
                 <td>&nbsp;</td>
-                <td><input type="submit" value="Submit" /> <input type="reset"
-                    value="Reset" /></td>
+                <td><input type="submit"  class="btn btn-primary btn-md" value="Submit" /> <input type="reset"
+                   class="btn btn-warning" value="Reset" /></td>
             </tr>
         </table>
  
     </form:form>
  
- 
-    <jsp:include page="_footer.jsp" />
+ <hr class="featurette-divider">
+<jsp:include page="_footer.jsp" />
+   
  
  
 </body>

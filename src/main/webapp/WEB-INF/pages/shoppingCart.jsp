@@ -9,8 +9,20 @@
  
 <title>Shopping Cart</title>
  
-<link rel="stylesheet" type="text/css" href="styles.css">
- 
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css"> 
+ <style>
+	.btn-primary {
+    color: #fff;
+    background-color: #5f5f5f;
+    border-color: #5f5f5f;
+}
+</style>
 </head>
 <body>
     <jsp:include page="_header.jsp" />
@@ -64,20 +76,21 @@
                 </div>
             </c:forEach>
             <div style="clear: both"></div>
-            <input class="button-update-sc" type="submit" value="Update Quantity" />
-            <a class="navi-item"
+            <input class=" btn btn-primary button-update-sc" type="submit" value="Update Quantity" />
+            <a class="btn btn-info"
                 href="${pageContext.request.contextPath}/shoppingCartCustomer">Enter
                 Customer Info</a>
-            <a class="navi-item"
+            <a class="btn btn-success"
                 href="${pageContext.request.contextPath}/productList">Continue
                 Buy</a>
         </form:form>
  
  
     </c:if>
+ <hr class="featurette-divider">
+<jsp:include page="_footer.jsp" />
  
- 
-    <jsp:include page="_footer.jsp" />
+  
  
 </body>
 </html>

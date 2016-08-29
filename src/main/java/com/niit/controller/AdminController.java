@@ -77,6 +77,12 @@ public class AdminController {
  
         return "login";
     }
+ // GET: Show Login Page
+    @RequestMapping(value = { "/Register" }, method = RequestMethod.GET)
+    public String Register(Model model) {
+ 
+        return "Register";
+    }
  
     @RequestMapping(value = { "/accountInfo" }, method = RequestMethod.GET)
     public String accountInfo(Model model) {
@@ -132,11 +138,12 @@ public class AdminController {
             @ModelAttribute("productForm") @Validated ProductInfo productInfo, //
             BindingResult result, //
             final RedirectAttributes redirectAttributes) {
- 
+    	System.out.println("productInfo :" + productInfo);
         if (result.hasErrors()) {
             return "product";
         }
         try {
+        	System.out.println("productInfo :" + productInfo);
             productDAO.save(productInfo);
         } catch (Exception e) {
             // Need: Propagation.NEVER?

@@ -9,7 +9,7 @@
    <a href="${pageContext.request.contextPath}/">Home</a>
    |
    <a href="${pageContext.request.contextPath}/productList">
-      Product List
+     MICROMAX Mobiles 
    </a>
    |
    <a href="${pageContext.request.contextPath}/shoppingCart">

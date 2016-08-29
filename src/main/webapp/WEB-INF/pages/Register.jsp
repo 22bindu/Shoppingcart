@@ -1,19 +1,21 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
- 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
  
-<title>Login</title>
+<title>REGISTER</title>
  
 <link rel="stylesheet" type="text/css" href="styles.css">
  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
+ 
+<style> h1.intro {
+    color: blue;
+}</style>
 </head>
 <body>
  
@@ -23,13 +25,13 @@
  
  
  
-    <div class="page-title">Login (For USER, MANAGER)</div>
+    <div class="page-title">REGISTRATION</div>
  
-    <div class="w3-input w3-animate-input">
+    <div class="login-container">
  
-        <h3  class="./intro" >Enter username and password</h3>
+        <h3  class="./intro" >Enter Details</h3>
         <br>
-        <!-- /login?error=true -->
+        <!-- /Register?error=true -->
         <c:if test="${param.error == 'true'}">
             <div style="color: red; margin: 10px 0px;">
  
@@ -51,10 +53,23 @@
                     <td>Password *</td>
                     <td ><input  type="password"  name="password" /></td>
                 </tr>
+                 <tr>
+                    <td>RE-Password *</td>
+                    <td ><input  type="password"  name="password" /></td>
+                </tr>
+               <tr>
+                    <td>Email *</td>
+                    <td ><input  type="text" name="email"  /></td>
+                </tr>
+                 <tr>
+                    <td>Phone no *</td>
+                    <td ><input  type="text"  name="Phone no" /></td>
+                </tr>
  
                 <tr >
+                
                     <td>&nbsp;</td>
-                    <td><input type="submit" class="btn btn-primary btn-md" value="Login"  /> 
+                    <td><input type="submit" class="btn btn-primary btn-md" value="Register"  /> 
                     <input type="reset" class="btn btn-warning btn-md" 
                         value="Reset" /></td>
                 </tr>
@@ -64,6 +79,9 @@
         <span class="error-message">${error }</span>
  
     </div>
+ 
 
+   
+ 
 </body>
 </html>

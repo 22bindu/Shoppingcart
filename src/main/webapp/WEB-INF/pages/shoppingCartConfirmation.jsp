@@ -8,8 +8,20 @@
  
 <title>Shopping Cart Confirmation</title>
  
-<link rel="stylesheet" type="text/css" href="styles.css">
- 
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css"> 
+ <style>
+	.btn-primary {
+    color: #fff;
+    background-color: #5f5f5f;
+    border-color: #5f5f5f;
+}
+</style>
 </head>
 <body>
    <jsp:include page="_header.jsp" />
@@ -53,7 +65,7 @@
            Customer Info</a>
  
        <!-- Send/Save -->
-       <input type="submit" value="Send" class="button-send-sc" />
+       <input type="submit" value="Check out" class="btn btn-primary button-send-sc" />
    </form>
  
    <div class="container">
@@ -82,8 +94,8 @@
        </c:forEach>
  
    </div>
- 
-   <jsp:include page="_footer.jsp" />
+<hr class="featurette-divider">
+<jsp:include page="_footer.jsp" />
  
 </body>
 </html>

@@ -1,23 +1,42 @@
 html {
-    background: white;
+    background:white;
 }
 h3 {
+	 text-align: center;
     margin: 0px;
     padding: 0px;
 }
+h2 {
+    font-size: 24px;
+}
+
 body {
     max-width: 860px;
     min-width: 360px;
-    margin: 0px auto;
-    background: #F8F8F8;
+    margin: 0px auto !important;
+    background: #FFF;
     padding:0px 5px;
-    text-align:center;
 }
- 
+ p.intro {
+    color: blue;
+    text-align:left;
+}
+.p  {
+	 text-align:center;
+    font-size:16px;}
+ @media (min-width: 768px){
+.lead {
+    font-size: 16px;
+}
+ }
 .page-title  {
     font-size:120%;
     text-align: left;
     margin:10px 0px;
+}
+.featur2 img {
+	height:300px;
+	margin-bottom:20px;
 }
 .header-container {
     text-align: left;
@@ -44,11 +63,12 @@ body {
 }
 .menu-container {
     text-align: right;
-    margin: 10px 5px;
+    padding: 10px 5px;
+    background-color: #f7f7f7;
 }
 .menu-container a {
     margin: 5px 5px 5px 10px;
-    color: #004d99;
+    color: #4a4e53;
     font-weight: bold;
     text-decoration: none;
 }
@@ -60,7 +80,7 @@ body {
 }
  
 .container  {
-    margin: 5px 0px;
+    margin: auto;
 }
  
 .demo-container, .login-container, .account-container {
@@ -76,22 +96,26 @@ body {
     padding: 0px 5px;
 }
 .product-preview-container {
-    border: 1px solid #ccc;
+    border: 1px solid #7d7777;
     padding: 5px;
     width: 250px;
     margin: 10px ;
     display: inline-block;
     text-align:left;
+    background: #f7f7f7; 
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+-moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
+box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.25);
 }
  
 .product-preview-container input {
     width: 50px;
 }
- 
+.mr10 {margin-right: 10px;} 
  
 .product-image {
     width: 120px;
-    height: 80px;
+    height: 180px;
 }
  
 ul {
@@ -107,7 +131,7 @@ ul {
  
 .button-update-sc {
     color: red;
-    margin: 5px 5px 5px 20px;
+    margin: 10px 5px 5px 20px;
 }
  
 .button-send-sc {
@@ -139,4 +163,7 @@ ul {
  
 table td {
     padding: 5px;
+}
+.featurette-heading {
+	
 }

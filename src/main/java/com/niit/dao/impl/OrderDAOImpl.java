@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.dao.OrderDAO;
 import com.niit.dao.ProductDAO;
@@ -24,38 +25,15 @@ import com.niit.model.OrderDetailInfo;
 import com.niit.model.OrderInfo;
 import com.niit.model.PaginationResult;
 
-public class OrderDAOImpl implements OrderDAO {
-
-	@Override
-	public void saveOrder(CartInfo cartInfo) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public PaginationResult<OrderInfo> listOrderInfo1(int page, int maxResult,
-			int maxNavigationPage) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public OrderInfo getOrderInfo(String orderId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<OrderDetailInfo> listOrderDetailInfos(String orderId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Autowired
-	private SessionFactory sessionFactory;
-
-	@Autowired
-	private ProductDAO productDAO;
-
+@Transactional
+public  class OrderDAOImpl implements OrderDAO {
+ 
+    @Autowired
+    private SessionFactory sessionFactory;
+ 
+    @Autowired
+    private ProductDAO productDAO;
+ 
 	private int getMaxOrderNum() {
 		String sql = "Select max(o.orderNum) from " + Order.class.getName()
 				+ " o ";
@@ -105,7 +83,7 @@ public class OrderDAOImpl implements OrderDAO {
 		}
 
 		// Set OrderNum for report.
-		// Set OrderNum Ä‘á»ƒ thÃ´ng bÃ¡o cho ngÆ°á»�i dÃ¹ng.
+		// Set OrderNum Ã„â€˜Ã¡Â»Æ’ thÃƒÂ´ng bÃƒÂ¡o cho ngÃ†Â°Ã¡Â»ï¿½i dÃƒÂ¹ng.
 		cartInfo.setOrderNum(orderNum);
 	}
 
@@ -147,6 +125,7 @@ public class OrderDAOImpl implements OrderDAO {
 				order.getCustomerPhone());
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<OrderDetailInfo> listOrderDetailInfos1(String orderId) {
 		String sql = "Select new "
 				+ OrderDetailInfo.class.getName() //
@@ -160,5 +139,23 @@ public class OrderDAOImpl implements OrderDAO {
 		query.setParameter("orderId", orderId);
 
 		return ((org.hibernate.Query) query).list();
+	}
+
+	@Override
+	public void saveOrder(CartInfo cartInfo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public OrderInfo getOrderInfo(String orderId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<OrderDetailInfo> listOrderDetailInfos(String orderId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

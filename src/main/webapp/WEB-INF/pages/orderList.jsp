@@ -5,10 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Product List</title>
- 
-<link rel="stylesheet" type="text/css" href="styles.css">
- 
+<title>Product List</title> 
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles.css"> 
 </head>
 <body>
  
@@ -21,7 +25,7 @@
  
     <div>Total Order Count: ${paginationResult.totalRecords}</div>
     
-    <table border="1" style="width:100%">
+    <table class="table table-bordered table-striped">
         <tr>
             <th>Order Num</th>
             <th>Order Date</th>
@@ -63,9 +67,10 @@
     </c:if>
  
  
+ <hr class="featurette-divider">
+<jsp:include page="_footer.jsp" />
  
- 
-    <jsp:include page="_footer.jsp" />
+
  
 </body>
 </html>

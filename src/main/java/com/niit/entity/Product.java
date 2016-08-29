@@ -16,10 +16,15 @@ import javax.persistence.TemporalType;
 public class Product implements Serializable {
  
     private static final long serialVersionUID = -1000119078147252957L;
- 
+    
+    
+    @Column(name = "products_code")
     private String code;
+    @Column(name = "products_name")
     private String name;
+    @Column(name = "products_price")
     private double price;
+    @Column(name = "products_image")
     private byte[] image;
  
     // For sort.

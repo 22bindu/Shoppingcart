@@ -7,10 +7,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Product List</title>
- 
+<title>Product List</title> 
 <link rel="stylesheet" type="text/css" href="styles.css">
- 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+   <script src="/javascripts/_jquery.js" type="text/javascript"></script>
+<style>
+	.btn-primary {
+    color: #fff;
+    background-color: #5f5f5f;
+    border-color: #5f5f5f;
+}
+</style>
 </head>
 <body>
  
@@ -20,18 +31,17 @@
     <fmt:setLocale value="en_US" scope="session"/>
  
     <div class="page-title">Product List</div>
-  
+    
  
- 
-    <c:forEach items="${paginationProducts.list}" var="prodInfo">
+    <c:forEach items="${paginationProducts.list}" var="prodInfo"   >
         <div class="product-preview-container">
-            <ul>
+            <ul id="myUL">
                 <li><img class="product-image"
                     src="${pageContext.request.contextPath}/productImage?code=${prodInfo.code}" /></li>
                 <li>Code: ${prodInfo.code}</li>
                 <li>Name: ${prodInfo.name}</li>
-                <li>Price: <fmt:formatNumber value="${prodInfo.price}" type="currency"/></li>
-                <li><a
+                <li>Price: <fmt:formatNumber value="${prodInfo.price}"   currencySymbol="Rs." type="currency"/></li>
+                <li><a class="btn btn-primary"
                     href="${pageContext.request.contextPath}/buyProduct?code=${prodInfo.code}">
                         Buy Now</a></li>
                 <!-- For Manager edit Product -->
@@ -60,8 +70,7 @@
             
         </div>
     </c:if>
- 
-    <jsp:include page="_footer.jsp" />
- 
+<hr class="featurette-divider">
+<jsp:include page="_footer.jsp" />
 </body>
 </html>

@@ -60,14 +60,13 @@ public class ProductDAOImpl implements ProductDAO {
         product.setPrice(productInfo.getPrice());
  
         if (productInfo.getFileData() != null) {
-            byte[] image = ((String) productInfo.getFileData()).getBytes();
+        	   byte[] image = productInfo.getFileData().getBytes();
             if (image != null && image.length > 0) {
                 product.setImage(image);
             }
         }
         if (isNew) {
-            this.sessionFactory.getCurrentSession().persist(product);
-        }
+            this.sessionFactory.getCurrentSession().persist(product);    }
         // If error in DB, Exceptions will be thrown out immediately
         // Nếu có lỗi tại DB, ngoại lệ sẽ ném ra ngay lập tức
         this.sessionFactory.getCurrentSession().flush();
