@@ -257,7 +257,7 @@ body {font-family: Verdana,sans-serif;}
 			</h2>
 			<p class="lead">
 				3GB RAM & Quad-Core Processor Watch a movie, while you’re chatting
-				with friends & updating your playlist at the same time; with the
+				with friends & updating your play list at the same time; with the
 				smartphone’s 3GB DDR3 RAM! <br>* 1 GHz Quad-Core Processor
 			</p>
 			<input type="submit" class="btn btn-primary btn-md" value="View more"  />

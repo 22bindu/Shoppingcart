@@ -185,11 +185,12 @@ to {
 				</li>
 			</ul>
 			
-			<form action="canvax2" >
+			<form  >
+			
 				<input type="submit" name="action" class="btn pull-left mr10 btn-primary btn-md"
-					value="Buy now" />
+				 value="Buy now" />
 			</form>
-			<form action="canvax3">
+			<form >
 				<input type="submit" name="button_1" class="btn btn-primary btn-md"
 					value="Add to cart">
 			</form>

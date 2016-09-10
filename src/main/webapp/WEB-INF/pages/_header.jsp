@@ -65,9 +65,9 @@ body {
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div class="overlay-content">
-    <a href="http://localhost:8080/shoppingcart/">About</a>
-    <a href="http://localhost:8080/shoppingcart/productList">Services</a>
-    <a href="http://localhost:8080/shoppingcart/">Contact</a>
+    <a href="http://localhost:8081/shoppingcart/">About</a>
+    <a href="http://localhost:8081/shoppingcart/productList">Products</a>
+    <a href="http://localhost:8081/shoppingcart/">Contact</a>
   </div>
 </div>
  

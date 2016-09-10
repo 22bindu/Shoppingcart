@@ -45,7 +45,6 @@ background-color:#808184!important;
 <body>
 
 
-<button class="button" onclick="myFunction()">CONTACT US</button>
 
 
 <!-- Footer -->

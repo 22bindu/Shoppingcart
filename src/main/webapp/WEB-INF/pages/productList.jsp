@@ -40,7 +40,7 @@
                     src="${pageContext.request.contextPath}/productImage?code=${prodInfo.code}" /></li>
                 <li>Code: ${prodInfo.code}</li>
                 <li>Name: ${prodInfo.name}</li>
-                <li>Price: <fmt:formatNumber value="${prodInfo.price}"   currencySymbol="Rs." type="currency"/></li>
+                <li >Price: <fmt:formatNumber value="${prodInfo.price}"  currencySymbol="Rs." type="currency"  /></li>
                 <li><a class="btn btn-primary"
                     href="${pageContext.request.contextPath}/buyProduct?code=${prodInfo.code}">
                         Buy Now</a></li>
@@ -72,5 +72,6 @@
     </c:if>
 <hr class="featurette-divider">
 <jsp:include page="_footer.jsp" />
+
 </body>
 </html>
