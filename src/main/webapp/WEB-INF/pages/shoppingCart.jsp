@@ -57,7 +57,7 @@
                         <li>Name: ${cartLineInfo.productInfo.name}</li>
                         <li>Price: <span class="price">
                         
-                          <fmt:formatNumber value="${cartLineInfo.productInfo.price}" type="currency"/>
+                          <fmt:formatNumber value="${cartLineInfo.productInfo.price}" currencySymbol="Rs." type="currency"/>
                           
                         </span></li>
                         <li>Quantity: <form:input
@@ -65,7 +65,7 @@
                         <li>Subtotal:
                           <span class="subtotal">
                           
-                             <fmt:formatNumber value="${cartLineInfo.amount}" type="currency"/>
+                             <fmt:formatNumber value="${cartLineInfo.amount}" currencySymbol="Rs." type="currency"/>
                         
                           </span>
                         </li>
@@ -78,11 +78,10 @@
             <div style="clear: both"></div>
             <input class=" btn btn-primary button-update-sc" type="submit" value="Update Quantity" />
             <a class="btn btn-info"
-                href="${pageContext.request.contextPath}/shoppingCartCustomer">Enter
-                Customer Info</a>
+                href="${pageContext.request.contextPath}/shoppingCartCustomer">Place Order</a>
             <a class="btn btn-success"
                 href="${pageContext.request.contextPath}/productList">Continue
-                Buy</a>
+               Shopping</a>
         </form:form>
  
  

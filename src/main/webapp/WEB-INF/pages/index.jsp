@@ -147,6 +147,7 @@ body {font-family: Verdana,sans-serif;}
   transition: background-color 0.6s ease;
 }
 
+
 .active {
   background-color: #717171;
 }

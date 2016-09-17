@@ -88,7 +88,18 @@ public class MainController {
     public String home1() {
         return "canvax 6";
     }
-   
+    @RequestMapping("payment")
+    public String payment() {
+        return "final";
+    }
+   @RequestMapping("payment1")
+   public String cancle(){
+	   return "cancle";
+   }
+   @RequestMapping("payment2")
+   public String Backtoshopping(){
+	   return "index";
+   }
  
     // Product List page.
     // Danh sách sản phẩm.

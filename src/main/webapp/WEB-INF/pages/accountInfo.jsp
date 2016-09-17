@@ -13,7 +13,7 @@
   	<link rel="stylesheet" type="text/css" href="styles.css"> 
   	<style>
 body, html {
-    height: 100%;
+    height: 60%;
 }
 
 	.btn-primary {
@@ -23,10 +23,10 @@ body, html {
 }
 .parallax {
     /* The image used */
-    background-image: url('http://65.media.tumblr.com/0e30c9a728de998f6c9aa2e36de34886/tumblr_inline_o7vdw8g9qh1ty1exq_1280.jpg');
+    background-image: url('http://en.sitelli.com/wp-content/uploads/2014/06/my_account.jpg');
 
     /* Full height */
-    height:60%;
+    height:0%;
 
     /* Create the parallax scrolling effect */
     background-attachment: fixed;
@@ -61,22 +61,51 @@ body, html {
 
 </div>
 
-<div class="parallax">
+<!-- <!-- <div class="parallax">
       <div class="container">
   <h2>Change password</h2>
   <form>
-   <div class="form-group">
+  
+    
+    
+    <button type="submit" class="btn btn-primary"></button>
+  </form>
+  
+</div></div> -->
+
+<div class="container">
+  
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Change password</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+           <div class="form-group">
+           <h3>Change password</h3>
       <label for="pwd">Old Password:</label>
       <input type="password" id="pwd" placeholder="Old password">
-    </div>
-    <div class="form-group">
+    </div> </div>
+        <div class="modal-body">
+          <div class="form-group">
       <label for="pwd">New Password:</label>
       <input type="password"  id="pwd" placeholder="Newpassword">
     </div>
-    
-    <button type="submit" class="btn btn-primary">Save changes</button>
-  </form>
-</div></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
 
 <hr class="featurette-divider">
 <jsp:include page="_footer.jsp" />

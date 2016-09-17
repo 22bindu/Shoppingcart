@@ -16,7 +16,7 @@
       My Cart
    </a>
    |
-   <security:authorize  access="hasAnyRole('ROLE_MANAGER','ROLE_EMPLOYEE')">
+   <security:authorize  access="hasAnyRole('ROLE_MANAGER')">
      <a href="${pageContext.request.contextPath}/orderList">
          Order List
      </a>

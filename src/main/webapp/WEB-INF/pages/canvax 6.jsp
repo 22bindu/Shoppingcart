@@ -186,14 +186,16 @@ to {
 			</ul>
 			
 			<form  >
-			
-				<input type="submit" name="action" class="btn pull-left mr10 btn-primary btn-md"
-				 value="Buy now" />
+			<ul>
+			 <li><a class="btn btn-primary"
+                    href="${pageContext.request.contextPath}/buyProduct?code=${prodInfo.code}">
+                        Buy Now</a></li>
+                        </ul>
 			</form>
-			<form >
+			<%-- <form >
 				<input type="submit" name="button_1" class="btn btn-primary btn-md"
 					value="Add to cart">
-			</form>
+			</form> --%>
 			
 		</div>
 		</div>

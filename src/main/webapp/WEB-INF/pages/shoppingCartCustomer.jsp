@@ -54,25 +54,25 @@
  
         <table class="table table-striped">
             <tr>
-                <td>Name *</td>
+                <td>Name :</td>
                 <td><form:input path="name" /></td>
                 <td><form:errors path="name" class="error-message" /></td>
             </tr>
  
             <tr>
-                <td>Email *</td>
+                <td>Email :</td>
                 <td><form:input path="email" /></td>
                 <td><form:errors path="email" class="error-message" /></td>
             </tr>
  
             <tr>
-                <td>Phone *</td>
+                <td>Phone :</td>
                 <td><form:input path="phone" /></td>
                 <td><form:errors path="phone" class="error-message" /></td>
             </tr>
  
             <tr>
-                <td>Address *</td>
+                <td>Address :</td>
                 <td><form:input path="address" /></td>
                 <td><form:errors path="address" class="error-message" /></td>
             </tr>
