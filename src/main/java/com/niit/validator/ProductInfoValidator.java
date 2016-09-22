@@ -4,7 +4,7 @@
 package com.niit.validator;
 
 /**
- * @author manjunath
+ * 
  *
  */
 import com.niit.dao.ProductDAO;

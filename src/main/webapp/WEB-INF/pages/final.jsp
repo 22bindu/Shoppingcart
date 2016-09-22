@@ -26,7 +26,7 @@
     </div>
         <h1>Thank you for Order</h1>
        <h2>
-        Your order number is: 001<%-- ${lastOrderedCart.orderNum} --%></h2>
+        Your order number is:${lastOrderedCart.orderNum}</h2>
          
     </div>
     <br>

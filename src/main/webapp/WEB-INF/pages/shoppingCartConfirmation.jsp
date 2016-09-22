@@ -15,33 +15,24 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles.css"> 
- <style>
-	.btn-primary {
-    color: #fff;
-    background-color: #5f5f5f;
-    border-color: #5f5f5f;
-}
-</style>
+ 
 </head>
 <body>
-   <jsp:include page="_header.jsp" />
-  
-   <jsp:include page="_menu.jsp" />
-  
-   <fmt:setLocale value="en_US" scope="session"/>
-      
-      
-      
-      <div class="container">
- 
+   <jsp:include page="_header.jsp" />  
+   <jsp:include page="_menu.jsp" />  
+   <fmt:setLocale value="en_US" scope="session"/>  
+    <div class="page-title">Confirmation</div>
+ 	<div class="row cart-confirm mt20">
+ 		<div class="col-md-5">
        <c:forEach items="${myCart.cartLines}" var="cartLineInfo">
            <div class="product-preview-container">
+           		<div class="row">
+                	<div class="col-md-4">
+               		<img class="product-image"
+                       src="${pageContext.request.contextPath}/productImage?code=${cartLineInfo.productInfo.code}" />
+                   </div>
+                   <div class="col-md-8">
                <ul>
-                   <li><img class="product-image"
-                       src="${pageContext.request.contextPath}/productImage?code=${cartLineInfo.productInfo.code}" /></li>
-                   <li>Code: ${cartLineInfo.productInfo.code} <input
-                       type="hidden" name="code" value="${cartLineInfo.productInfo.code}" />
-                   </li>
                    <li>Name: ${cartLineInfo.productInfo.name}</li>
                    <li>Price: <span class="price">
                       <fmt:formatNumber value="${cartLineInfo.productInfo.price}" currencySymbol="Rs." type="currency"/>
@@ -55,25 +46,25 @@
                    </li>
                </ul>
            </div>
+           </div>
+           </div>
        </c:forEach>
-       
+ 	</div>
+ 	
  
-   </div>
-   <div class="page-title">Confirmation</div>
-  
-  
-  
+   <div class="col-md-7">
    <div class="customer-info-container">
-       <h3>Customer Information:</h3>
+       <h3 class="text-left">Customer Information:</h3>
        <ul>
            <li>Name: ${myCart.customerInfo.name}</li>
            <li>Email: ${myCart.customerInfo.email}</li>
            <li>Phone: ${myCart.customerInfo.phone}</li>
            <li>Address: ${myCart.customerInfo.address}</li>
        </ul>
-       </div>
-        <div class="customer-info-container">
-       <h3>Cart Summary:</h3>
+       
+       
+      
+       <h3 class="text-left">Cart Summary:</h3>
        <ul>
            <li>Quantity: ${myCart.quantityTotal}</li>
            <li>Total:
@@ -95,8 +86,10 @@
            Customer Info</a>
  
        <!-- Send/Save -->
-       <input type="submit" value="Payment" class="btn btn-primary button-send-sc" />
+       <input type="submit" value="Payment" class="btn btn-primary" />
    </form>
+  </div>
+   </div>
    </div>
  
  

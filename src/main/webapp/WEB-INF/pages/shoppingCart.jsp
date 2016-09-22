@@ -16,13 +16,7 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles.css"> 
- <style>
-	.btn-primary {
-    color: #fff;
-    background-color: #5f5f5f;
-    border-color: #5f5f5f;
-}
-</style>
+ 
 </head>
 <body>
     <jsp:include page="_header.jsp" />
@@ -35,21 +29,24 @@
  
     <c:if test="${empty cartForm or empty cartForm.cartLines}">
         <h2>There is no items in Cart</h2>
-        <a href="${pageContext.request.contextPath}/productList">Show
+        <a class="btn btn-primary" href="${pageContext.request.contextPath}/productList">Show
             Product List</a>
     </c:if>
  
     <c:if test="${not empty cartForm and not empty cartForm.cartLines   }">
-        <form:form method="POST" modelAttribute="cartForm"
+        <form:form method="POST" modelAttribute="cartForm" class="cart"
             action="${pageContext.request.contextPath}/shoppingCart">
  
             <c:forEach items="${cartForm.cartLines}" var="cartLineInfo"
                 varStatus="varStatus">
                 <div class="product-preview-container">
-                    <ul>
-                        <li><img class="product-image"
+                	<div class="row">
+                	<div class="col-md-4">
+                   <img class="product-image" 
                             src="${pageContext.request.contextPath}/productImage?code=${cartLineInfo.productInfo.code}" />
-                        </li>
+                    </div> 
+                    <div class="col-md-8"> 
+                    <ul>
                         <li>Code: ${cartLineInfo.productInfo.code} <form:hidden
                                 path="cartLines[${varStatus.index}].productInfo.code" />
  
@@ -69,14 +66,17 @@
                         
                           </span>
                         </li>
-                        <li><a
+                        <li><a class="btn btn-danger"
                             href="${pageContext.request.contextPath}/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}">
                                 Delete </a></li>
                     </ul>
+                    </div> 
+                </div>
                 </div>
             </c:forEach>
+            
             <div style="clear: both"></div>
-            <input class=" btn btn-primary button-update-sc" type="submit" value="Update Quantity" />
+            <input class=" btn btn-primary" type="submit" value="Update Quantity" />
             <a class="btn btn-info"
                 href="${pageContext.request.contextPath}/shoppingCartCustomer">Place Order</a>
             <a class="btn btn-success"

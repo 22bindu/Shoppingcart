@@ -84,6 +84,7 @@ public class MainController {
     public String home() {
         return "index";
     }
+ 
     @RequestMapping("canvax1")
     public String home1() {
         return "canvax 6";
@@ -107,8 +108,8 @@ public class MainController {
     public String listProductHandler(Model model, //
             @RequestParam(value = "name", defaultValue = "") String likeName,
             @RequestParam(value = "page", defaultValue = "1") int page) {
-        final int maxResult = 9;
-        final int maxNavigationPage = 10;
+        final int maxResult = 6;
+        final int maxNavigationPage = 5;
  
         PaginationResult<ProductInfo> result = productDAO.queryProducts(page, //
                 maxResult, maxNavigationPage, likeName);

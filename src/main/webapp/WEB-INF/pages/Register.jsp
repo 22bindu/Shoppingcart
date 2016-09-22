@@ -13,7 +13,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  
-<style> h1.intro {
+<style> 
+h1.intro {
     color: blue;
 }</style>
 </head>
@@ -32,37 +33,31 @@
         <h3  class="./intro" >Enter Details</h3>
         <br>
         <!-- /Register?error=true -->
-        <c:if test="${param.error == 'true'}">
-            <div style="color: red; margin: 10px 0px;">
- 
-                Login Failed!!!<br /> Reason :
-                ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
- 
-            </div>
-        </c:if>
+       
+        
  
         <form method="POST"
             action="${pageContext.request.contextPath}/j_spring_security_check">
             <table class="table table-hover">
                 <tr>
-                    <td>User Name *</td>
+                    <td>User Name :</td>
                     <td><input name="userName" /></td>
                 </tr>
  
                 <tr>
-                    <td>Password *</td>
+                    <td>Password :</td>
                     <td ><input  type="password"  name="password" /></td>
                 </tr>
                  <tr>
-                    <td>RE-Password *</td>
+                    <td>RE-Password : </td>
                     <td ><input  type="password"  name="password" /></td>
                 </tr>
                <tr>
-                    <td>Email *</td>
+                    <td>Email :</td>
                     <td ><input  type="text" name="email"  /></td>
                 </tr>
                  <tr>
-                    <td>Phone no *</td>
+                    <td>Phone no :</td>
                     <td ><input  type="text"  name="Phone no" /></td>
                 </tr>
  

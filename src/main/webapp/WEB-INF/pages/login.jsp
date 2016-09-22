@@ -54,7 +54,7 @@
  
                 <tr >
                     <td>&nbsp;</td>
-                    <td><input type="submit" class="btn btn-primary btn-md" value="Login"  /> 
+                    <td><input  type="submit" class="btn btn-primary btn-md" value="Login"  /> 
                     <input type="reset" class="btn btn-warning btn-md" 
                         value="Reset" /></td>
                 </tr>

@@ -15,13 +15,7 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
    <script src="/javascripts/_jquery.js" type="text/javascript"></script>
-<style>
-	.btn-primary {
-    color: #fff;
-    background-color: #5f5f5f;
-    border-color: #5f5f5f;
-}
-</style>
+
 </head>
 <body>
  
@@ -35,24 +29,34 @@
  
     <c:forEach items="${paginationProducts.list}" var="prodInfo"   >
         <div class="product-preview-container">
-            <ul id="myUL">
-                <li><img class="product-image"
-                    src="${pageContext.request.contextPath}/productImage?code=${prodInfo.code}" /></li>
+        <div class="row">
+                	<div class="col-md-4">
+        <img class="product-image"
+                    src="${pageContext.request.contextPath}/productImage?code=${prodInfo.code}" />
+                    </div>
+                     <div class="col-md-8"> 
+            <ul >
+                
                 <li>Code: ${prodInfo.code}</li>
                 <li>Name: ${prodInfo.name}</li>
                 <li >Price: <fmt:formatNumber value="${prodInfo.price}"  currencySymbol="Rs." type="currency"  /></li>
                 <li><a class="btn btn-primary"
                     href="${pageContext.request.contextPath}/buyProduct?code=${prodInfo.code}">
-                        Buy Now</a></li>
+                        Buy Now</a>
+                        <security:authorize  access="hasRole('ROLE_MANAGER')">
+                  <a class="btn btn-default" href="${pageContext.request.contextPath}/product?code=${prodInfo.code}">
+                        Edit Product</a>      
+                       
+                         </security:authorize>
+                          </li>
                 <!-- For Manager edit Product -->
-                <security:authorize  access="hasRole('ROLE_MANAGER')">
-                  <li><a style="color:red;"
-                      href="${pageContext.request.contextPath}/product?code=${prodInfo.code}">
-                        Edit Product</a></li>
-                </security:authorize>
+                
+                 
+               
             </ul>
+            </div>
         </div>
- 
+ </div>
     </c:forEach>
     <br/>
     

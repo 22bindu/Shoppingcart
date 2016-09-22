@@ -8,7 +8,7 @@ import com.niit.model.OrderInfo;
 import com.niit.model.PaginationResult;
  
 public interface OrderDAO {
- 
+	 
     public void saveOrder(CartInfo cartInfo);
  
     public PaginationResult<OrderInfo> listOrderInfo(int page,

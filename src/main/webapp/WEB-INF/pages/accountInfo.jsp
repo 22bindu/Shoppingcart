@@ -12,31 +12,16 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<link rel="stylesheet" type="text/css" href="styles.css"> 
   	<style>
-body, html {
-    height: 60%;
-}
+
 
 	.btn-primary {
     color: #fff;
     background-color: #5f5f5f;
     border-color: #5f5f5f;
 }
-.parallax {
-    /* The image used */
-    background-image: url('http://en.sitelli.com/wp-content/uploads/2014/06/my_account.jpg');
-
-    /* Full height */
-    height:0%;
-
-    /* Create the parallax scrolling effect */
-    background-attachment: fixed;
-    background-position: auto;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 </style>
 </head>
-<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
+<body>
  
  
     <jsp:include page="_header.jsp" />
@@ -44,10 +29,11 @@ body, html {
 
  <div class="page-title">Account Info</div>
   
-<div class="parallax"></div>
 
-<div style="height:100px;background-color:#ccc;font-size:20px">
+
+<div  style="font-size:20px">
   <div class="container-fluid" style="background-color:#ddd;color: #5f5f5f;">
+  <div>
      <ul>
             <li>User Name: ${pageContext.request.userPrincipal.name}</li>
             <li><c:forEach items="${userDetails.authorities}" var="auth">
@@ -56,7 +42,7 @@ body, html {
                 
             </li>
         </ul>
-        
+     </div>   
 </div>
 
 </div>

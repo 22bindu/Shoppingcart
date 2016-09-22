@@ -79,7 +79,7 @@
  
             <tr>
                 <td>&nbsp;</td>
-                <td><input type="submit"  class="btn btn-primary btn-md" value="Submit" /> <input type="reset"
+                <td><input type="submit"  class="btn btn-primary btn-md" value="Confirm Order" /> <input type="reset"
                    class="btn btn-warning" value="Reset" /></td>
             </tr>
         </table>

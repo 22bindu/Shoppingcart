@@ -1,19 +1,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
- 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Product List</title>
- 
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="styles.css"> 
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="styles.css">
  
 </head>
 <body>
@@ -37,14 +34,14 @@
         <ul>
             <li>Total:
             <span class="total">
-            <fmt:formatNumber value="${orderInfo.amount}" type="currency"/>
+            <fmt:formatNumber value="${orderInfo.amount}" currencySymbol="Rs."  type="currency"/>
             </span></li>
         </ul>
     </div>
      
     <br/>
      
-    <table border="1" style="width:100%">
+    <table class="table table-bordered table table-hover">
         <tr>
             <th>Product Code</th>
             <th>Product Name</th>
@@ -58,10 +55,10 @@
                 <td>${orderDetailInfo.productName}</td>
                 <td>${orderDetailInfo.quanity}</td>
                 <td>
-                 <fmt:formatNumber value="${orderDetailInfo.price}" type="currency"/>
+                 <fmt:formatNumber value="${orderDetailInfo.price}" currencySymbol="Rs."   type="currency"/>
                 </td>
                 <td>
-                 <fmt:formatNumber value="${orderDetailInfo.amount}" type="currency"/>
+                 <fmt:formatNumber value="${orderDetailInfo.amount}" currencySymbol="Rs."  type="currency"/>
                 </td>  
             </tr>
         </c:forEach>

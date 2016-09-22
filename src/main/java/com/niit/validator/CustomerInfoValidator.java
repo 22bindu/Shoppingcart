@@ -4,7 +4,7 @@
 package com.niit.validator;
 
 /**
- * @author manjunath
+
  *
  */
 import org.apache.commons.validator.routines.EmailValidator;

@@ -25,137 +25,115 @@ import com.niit.model.OrderDetailInfo;
 import com.niit.model.OrderInfo;
 import com.niit.model.PaginationResult;
 
+//Transactional for Hibernate
 @Transactional
-public  class OrderDAOImpl implements OrderDAO {
- 
-    @Autowired
-    private SessionFactory sessionFactory;
- 
-    @Autowired
-    private ProductDAO productDAO;
- 
-	private int getMaxOrderNum() {
-		String sql = "Select max(o.orderNum) from " + Order.class.getName()
-				+ " o ";
-		Session session = sessionFactory.getCurrentSession();
-		org.hibernate.Query query = session.createQuery(sql);
-		Integer value = (Integer) query.uniqueResult();
-		if (value == null) {
-			return 0;
-		}
-		return value;
-	}
+public class OrderDAOImpl implements OrderDAO {
 
-	public void saveOrder1(CartInfo cartInfo) {
-		Session session = sessionFactory.getCurrentSession();
+  @Autowired
+  private SessionFactory sessionFactory;
 
-		int orderNum = this.getMaxOrderNum() + 1;
-		Order order = new Order();
+  @Autowired
+  private ProductDAO productDAO;
 
-		order.setId(UUID.randomUUID().toString());
-		order.setOrderNum(orderNum);
-		order.setOrderDate(new Date());
-		order.setAmount(cartInfo.getAmountTotal());
+  private int getMaxOrderNum() {
+      String sql = "Select max(o.orderNum) from " + Order.class.getName() + " o ";
+      Session session = sessionFactory.getCurrentSession();
+      org.hibernate.Query query = session.createQuery(sql);
+      Integer value = (Integer) query.uniqueResult();
+      if (value == null) {
+          return 0;
+      }
+      return value;
+  }
 
-		CustomerInfo customerInfo = cartInfo.getCustomerInfo();
-		order.setCustomerName(customerInfo.getName());
-		order.setCustomerEmail(customerInfo.getEmail());
-		order.setCustomerPhone(customerInfo.getPhone());
-		order.setCustomerAddress(customerInfo.getAddress());
+  @Override
+  public void saveOrder(CartInfo cartInfo) {
+      Session session = sessionFactory.getCurrentSession();
 
-		session.persist(order);
+      int orderNum = this.getMaxOrderNum() + 1;
+      Order order = new Order();
 
-		List<CartLineInfo> lines = cartInfo.getCartLines();
+      order.setId(UUID.randomUUID().toString());
+      order.setOrderNum(orderNum);
+      order.setOrderDate(new Date());
+      order.setAmount(cartInfo.getAmountTotal());
 
-		for (CartLineInfo line : lines) {
-			OrderDetail detail = new OrderDetail();
-			detail.setId(UUID.randomUUID().toString());
-			detail.setOrder(order);
-			detail.setAmount(line.getAmount());
-			detail.setPrice(line.getProductInfo().getPrice());
-			detail.setQuanity(line.getQuantity());
+      CustomerInfo customerInfo = cartInfo.getCustomerInfo();
+      order.setCustomerName(customerInfo.getName());
+      order.setCustomerEmail(customerInfo.getEmail());
+      order.setCustomerPhone(customerInfo.getPhone());
+      order.setCustomerAddress(customerInfo.getAddress());
 
-			String code = line.getProductInfo().getCode();
-			Product product = this.productDAO.findProduct(code);
-			detail.setProduct(product);
+      session.persist(order);
 
-			session.persist(detail);
-		}
+      List<CartLineInfo> lines = cartInfo.getCartLines();
 
-		// Set OrderNum for report.
-		// Set OrderNum Ã„â€˜Ã¡Â»Æ’ thÃƒÂ´ng bÃƒÂ¡o cho ngÃ†Â°Ã¡Â»ï¿½i dÃƒÂ¹ng.
-		cartInfo.setOrderNum(orderNum);
-	}
+      for (CartLineInfo line : lines) {
+          OrderDetail detail = new OrderDetail();
+          detail.setId(UUID.randomUUID().toString());
+          detail.setOrder(order);
+          detail.setAmount(line.getAmount());
+          detail.setPrice(line.getProductInfo().getPrice());
+          detail.setQuanity(line.getQuantity());
 
-	// @page = 1, 2, ...
-	@Override
-	public PaginationResult<OrderInfo> listOrderInfo(int page, int maxResult,
-			int maxNavigationPage) {
-		String sql = "Select new "
-				+ OrderInfo.class.getName()//
-				+ "(ord.id, ord.orderDate, ord.orderNum, ord.amount, "
-				+ " ord.customerName, ord.customerAddress, ord.customerEmail, ord.customerPhone) "
-				+ " from " + Order.class.getName() + " ord "//
-				+ " order by ord.orderNum desc";
-		Session session = this.sessionFactory.getCurrentSession();
+          String code = line.getProductInfo().getCode();
+          Product product = this.productDAO.findProduct(code);
+          detail.setProduct(product);
 
-		org.hibernate.Query query = session.createQuery(sql);
+          session.persist(detail);
+      }
 
-		return new PaginationResult<OrderInfo>(query, page, maxResult,
-				maxNavigationPage);
-	}
+      // Set OrderNum for report.
+      // Set OrderNum để thông báo cho người dùng.
+      cartInfo.setOrderNum(orderNum);
+  }
 
-	public Order findOrder(String orderId) {
-		Session session = sessionFactory.getCurrentSession();
-		Criteria crit = session.createCriteria(Order.class);
-		crit.add(Restrictions.eq("id", orderId));
-		return (Order) crit.uniqueResult();
-	}
+  // @page = 1, 2, ...
+  @Override
+  public PaginationResult<OrderInfo> listOrderInfo(int page, int maxResult, int maxNavigationPage) {
+      String sql = "Select new " + OrderInfo.class.getName()//
+              + "(ord.id, ord.orderDate, ord.orderNum, ord.amount, "
+              + " ord.customerName, ord.customerAddress, ord.customerEmail, ord.customerPhone) " + " from "
+              + Order.class.getName() + " ord "//
+              + " order by ord.orderNum desc";
+      Session session = this.sessionFactory.getCurrentSession();
 
-	public OrderInfo getOrderInfo1(String orderId) {
-		Order order = this.findOrder(orderId);
-		if (order == null) {
-			return null;
-		}
-		return new OrderInfo(order.getId(),
-				order.getOrderDate(), //
-				order.getOrderNum(), order.getAmount(),
-				order.getCustomerName(), //
-				order.getCustomerAddress(), order.getCustomerEmail(),
-				order.getCustomerPhone());
-	}
+      org.hibernate.Query query = session.createQuery(sql);
 
-	@SuppressWarnings("unchecked")
-	public List<OrderDetailInfo> listOrderDetailInfos1(String orderId) {
-		String sql = "Select new "
-				+ OrderDetailInfo.class.getName() //
-				+ "(d.id, d.product.code, d.product.name , d.quanity,d.price,d.amount) "//
-				+ " from " + OrderDetail.class.getName() + " d "//
-				+ " where d.order.id = :orderId ";
+      return new PaginationResult<OrderInfo>(query, page, maxResult, maxNavigationPage);
+  }
 
-		Session session = this.sessionFactory.getCurrentSession();
+  public Order findOrder(String orderId) {
+      Session session = sessionFactory.getCurrentSession();
+      Criteria crit = session.createCriteria(Order.class);
+      crit.add(Restrictions.eq("id", orderId));
+      return (Order) crit.uniqueResult();
+  }
 
-		Query query = (Query) session.createQuery(sql);
-		query.setParameter("orderId", orderId);
+  @Override
+  public OrderInfo getOrderInfo(String orderId) {
+      Order order = this.findOrder(orderId);
+      if (order == null) {
+          return null;
+      }
+      return new OrderInfo(order.getId(), order.getOrderDate(), //
+              order.getOrderNum(), order.getAmount(), order.getCustomerName(), //
+              order.getCustomerAddress(), order.getCustomerEmail(), order.getCustomerPhone());
+  }
 
-		return ((org.hibernate.Query) query).list();
-	}
+  @Override
+  public List<OrderDetailInfo> listOrderDetailInfos(String orderId) {
+      String sql = "Select new " + OrderDetailInfo.class.getName() //
+              + "(d.id, d.product.code, d.product.name , d.quanity,d.price,d.amount) "//
+              + " from " + OrderDetail.class.getName() + " d "//
+              + " where d.order.id = :orderId ";
 
-	@Override
-	public void saveOrder(CartInfo cartInfo) {
-		// TODO Auto-generated method stub
-		
-	}
+      Session session = this.sessionFactory.getCurrentSession();
 
-	@Override
-	public OrderInfo getOrderInfo(String orderId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+      org.hibernate.Query query = session.createQuery(sql);
+      query.setParameter("orderId", orderId);
 
-	@Override
-	public List<OrderDetailInfo> listOrderDetailInfos(String orderId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+      return query.list();
+  }
+
 }

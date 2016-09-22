@@ -29,7 +29,7 @@
     width:170px;
 }
  body { margin-top:20px; }
-.panel-title {display: inline;font-weight: bold;}
+.panel-title {display: inline; font-weight: bold;}
 .checkbox.pull-right { margin: 0; }
 .pl-ziro { padding-left: 0px; }
  
@@ -41,7 +41,8 @@
     <jsp:include page="_menu.jsp" />
  
     <div class="page-title">Final Payment</div>
-    <div class="container">
+    
+    <div class="container" >
     <div class="row">
         <div class="col-xs-12 col-md-4">
             <div class="panel panel-default">
@@ -100,7 +101,7 @@
             </div>
             
             <ul class="nav nav-pills nav-stacked">
-                <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd " ></span></span> Invoice Total</a>
+                <li class="active"><a href="#"><span class="badge pull-right"><span class="glyphicon glyphicon-usd " >RS.5222200</span></span> Invoice Total</a>
                 </li>
             </ul>
             <br/>
@@ -109,8 +110,7 @@
         </div>
     </div>
 </div>
-    
-   
+
  
    
  <hr class="featurette-divider">

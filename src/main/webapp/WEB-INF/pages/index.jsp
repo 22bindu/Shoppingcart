@@ -13,6 +13,7 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	
 <style>
 #myImg {
     border-radius: 5px;
@@ -101,11 +102,7 @@
 }
 </style>
 	<style>
-	.btn-primary {
-    color: #fff;
-    background-color: #5f5f5f;
-    border-color: #5f5f5f;
-}
+	
 * {box-sizing:border-box}
 body {font-family: Verdana,sans-serif;}
 
@@ -193,16 +190,21 @@ body {font-family: Verdana,sans-serif;}
 
 <div class="mySlides fade">
   <div class="numbertext"></div>
-  <img src="http://www.techgadgetsz.com/wp-content/uploads/2014/10/Opus-HD-Product-Page-Banner.jpg" style="width:100%">
+  <img src="http://cdn.androidadvices.com/wp-content/uploads/2014/08/Q610s.jpg" style="width:100%">
   <div class="text">Micromax can change the world</div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext"></div>
-  <img src="http://www.techgadgetsz.com/wp-content/uploads/2014/11/Product-Page-Banner-Q710s-1024x363.jpg" style="width:100%">
+  <img src="http://www.americanbazaaronline.com/wp-content/uploads/2015/01/Xolo-Q700-club.jpg" style="width:100%">
   <div class="text">New life style</div>
 </div>
 
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="http://4.bp.blogspot.com/-H3bgcipwQZ0/U70m5XFCxiI/AAAAAAAAAAs/g8POF21V0i4/s1600/q600s-product-page-banner.jpg" style="width:100%">
+  <div class="text">Enjoy the life with micromax</div>
+</div>
 
 </div>
 <br>
@@ -210,6 +212,8 @@ body {font-family: Verdana,sans-serif;}
 <div style="text-align:center">
   <span class="dot"></span>
   <span class="dot"></span>
+  <span class="dot"></span>
+
   <span class="dot"></span>
 </div>
 
